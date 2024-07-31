@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malignancy-Cancer Prediction App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+
+    <style>  #searchContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #searchInput {
+        display: none; /* Hide the search input by default */
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin-left: 5px;
+    }
+
+    #searchBtn {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        color: #741111;
+        font-size: 1.2rem;
+        padding: 5px;
+        margin-left: 5px;
+    }
+
+    #searchBtn:hover {
+        color: #a53131;}
+        </style>
+</head>
+<body>
+<header class="header">
+    <a href="#" class="logo"><i class="fas fa-hospital"></i> Malignancy-Cancer Prediction</a>
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#book">Predict Now</a>
+        <a href="#doctors">Doctors</a>
+        <a href="http://localhost/malignancy/login_system/login_form.php">Log In</a>
+    </nav>
+    <div id="searchContainer">
+        <button id="searchBtn"><i class="fas fa-search"></i></button>
+        <input type="text" id="searchInput" placeholder="Search">
+    </div>
+    <div id="menu-btn" class="fas fa-bars"></div>
+</header>
+
+<section class="home" id="home">
+    <div class="image">
+        <img src="static/image/cancer.png" alt="Cancer Awareness">
+    </div>
+    <div class="content">
+        <h3>You Are Not Alone!</h3>
+        <p><b>"You can be a victim of Cancer, or survivor of Cancer. It's a Mindset!!"</b></p>
+    </div>
+</section>
+
+<section class="book" id="book">
+    <h1 class="heading"><span>Predict</span> Now</h1>
+    <div class="row">
+        <div class="image">
+            <img src="static/image/predict.png" alt="Predict">
+        </div>
+        <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+            <h3>Upload To Predict</h3>
+            <input type="file" name="file" id="file" accept=".csv, .png, .jpg, .jpeg">
+            <button type="submit" class="btn">Predict Now!! <span class="fas fa-chevron-right"></span></button>
+        </form>
+    </div>
+</section>
+
+<section class="doctors" id="doctors">
+    <h1 class="heading">Our <span>Doctors</span></h1>
+    <div class="box-container">
+        <div class="box">
+            <img src="static/image/doc-1.jpg" alt="Doctor 1">
+            <h3>Doctor 1</h3>
+            <span>Expert Doctor</span>
+            <div class="share">
+                <a href="mailto:example@example.com" class="fas fa-envelope"></a>
+                <a href="tel:+1234567890" class="fas fa-phone"></a>
+            </div>
+            <div class="appointment">
+                <a href="http://localhost/malignancy/login_system/login_form.php" class="btn">Book Appointment</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src="static/image/doc-2.jpg" alt="Doctor 2">
+            <h3>Doctor 2</h3>
+            <span>Expert Doctor</span>
+            <div class="share">
+                <a href="mailto:example@example.com" class="fas fa-envelope"></a>
+                <a href="tel:+1234567890" class="fas fa-phone"></a>
+            </div>
+            <div class="appointment">
+                <a href="http://localhost/malignancy/login_system/login_form.php" class="btn">Book Appointment</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src="static/image/doc-3.jpg" alt="Doctor 3">
+            <h3>Doctor 3</h3>
+            <span>Expert Doctor</span>
+            <div class="share">
+                <a href="mailto:example@example.com" class="fas fa-envelope"></a>
+                <a href="tel:+1234567890" class="fas fa-phone"></a>
+            </div>
+            <div class="appointment">
+                <a href="http://localhost/malignancy/login_system/login_form.php" class="btn">Book Appointment</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="search-results">
+    <h1 class="heading">About<span> Us</span></h1>
+    <div class="results-container" id="results-container"></div>
+</section>
+
+<section class="footer" id="footer">
+    <div class="box-container">
+        <div class="box">
+            <h3>Contact Info</h3>
+            <a href="#"><i class="fas fa-phone"></i> +123 456 789</a>
+            <a href="#"><i class="fas fa-envelope"></i> abcd@gmail.com</a>
+        </div>
+        <div class="box">
+            <h3>Follow Us</h3>
+            <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+            <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+        </div>
+    </div>
+    <div class="credit">Created by <span>Anika Asad</span> | All rights reserved</div>
+</section>
+
+<div id="resultModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Prediction Results</h2>
+        <div id="resultContent"></div>
+    </div>
+</div>
+
+<script src="static/js/script.js"></script>
+<script>
+    window.onload = function() {
+        loadDoctors();
+    };
+</script>
+
+<script>// Function to toggle the visibility of the search input field
+    document.getElementById('searchBtn').addEventListener('click', function() {
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput.style.display === 'none' || searchInput.style.display === '') {
+            searchInput.style.display = 'block';
+            searchInput.focus();
+        } else {
+            searchInput.style.display = 'none';
+        }
+    });
+
+    // Function to filter doctors based on search input
+    function filterDoctors(searchTerm) {
+        const doctors = JSON.parse(localStorage.getItem('doctors')) || [];
+        const filteredDoctors = doctors.filter(doctor => {
+            return doctor.name.toLowerCase().includes(searchTerm.toLowerCase());
+        });
+        return filteredDoctors;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predictions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        h1 {
+            text-align: center;
+            font-size: 1.8rem;
+        }
+        .doctor-container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .doctor-container h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .doctor-form {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .doctor-form input,
+        .doctor-form button {
+            margin: 5px 0;
+            padding: 10px;
+            font-size: 16px;
+            text-transform: none;
+        }
+
+        .doctor-form button {
+            background-color: #741111;
+            color: white;
+            padding: 8px 16px; /* Adjusted padding to make it smaller */
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .doctor-form button:hover {
+            background-color: #d36666;
+        }
+
+        .doctor-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .doctor-table th,
+        .doctor-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .doctor-table th {
+            background-color: #f2f2f2;
+        }
+
+        .edit-btn,
+        .delete-btn {
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin-right: 10px;
+        }
+
+        .edit-btn {
+            color: #a53131;
+        }
+
+        .delete-btn {
+            color: #a53131;
+        }
+
+        .edit-mode {
+            background-color: #fffbcc;
+        }
+
+        .email-cell {
+            text-transform: none;
+        }
+
+        .btn-approve {
+            background-color: #a74242;
+            color: white;
+            padding: 8px 16px; /* Adjusted padding to make it smaller */
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .btn-approve:hover {
+            background-color: #741111;
+        }
+
+        #searchContainer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #searchInput {
+            display: none; /* Hide the search input by default */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px 10px;
+            margin-left: 5px;
+        }
+
+        #searchBtn {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            color: #741111;
+            font-size: 1.2rem;
+            padding: 5px;
+            margin-left: 5px;
+        }
+
+        #searchBtn:hover {
+            color: #a53131;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo"><i class="fas fa-hospital"></i> Malignancy-Cancer Prediction</a>
+        <nav class="navbar">
+            <a href="http://127.0.0.1:5000/#home">Home</a>
+            <a href="http://localhost/login_system/appointments.php">Appointments</a>
+            <a href="http://localhost/login_system/logout.php">Log Out</a>
+        </nav>
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <div id="searchContainer">
+            <button id="searchBtn"><i class="fas fa-search"></i></button>
+            <input type="text" id="searchInput" placeholder="Search">
+        </div>
+    </header>
+
+    <section class="home" id="home">
+        <div class="welcome-message">
+            <!-- You can add a welcome message or introduction here -->
+        </div>
+    </section>
+
+    <section class="appointment-container" id="appointment">
+        <div class="doctor-container">            
+            <h1>Prediction Records</h1>
+            <table class="doctor-table" id="doctorTable">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Result</th>
+                        <th>Uploaded File</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Malignant</td>
+                        <td><a href="uploads/Dr.Rizwan Aziz Data.csv" download>Asma Patient</td>
+                        <td>18-07-2024</td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="footer" id="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>Contact Info</h3>
+                <a href="#"><i class="fas fa-phone"></i> +123 456 789</a>
+                <a href="#"><i class="fas fa-envelope"></i> abcd@gmail.com</a>
+            </div>
+            <div class="box">
+                <h3>Follow Us</h3>
+                <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+            </div>
+        </div>
+        <div class="credit">Created by <span>Anika Asad</span> | All rights reserved</div>
+    </section>
+
+
+</body>
+</html>
