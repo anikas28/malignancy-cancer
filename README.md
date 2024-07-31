@@ -11,11 +11,11 @@ specific doctors are displayed by system for further results for therapy. The te
 allows users to book appointment of doctors.
 The objectives of the system that would benefit patients and participating
 doctors:
-i. Develop an appointment scheduling method for patient registration and
+     i. Develop an appointment scheduling method for patient registration and
 assess doctor accessibility
-ii. Create a user-friendly online application for patient interaction which is
+    ii. Create a user-friendly online application for patient interaction which is
 easily accessible and view doctor information.
-iii. Implement a structured system capable of predicting accurate cancer
+    iii. Implement a structured system capable of predicting accurate cancer
 risks based on user data.
-iv. Assess the functionality and effectiveness of the developed application in
+    iv. Assess the functionality and effectiveness of the developed application in
 meeting user needs and objectives.
